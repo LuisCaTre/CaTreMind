@@ -1,4 +1,4 @@
-#VERSION MAS DIFICIL DE MASTERMIND BY CATRE
+#VERSION MAS DIFICIL/MEJORADA DE MASTERMIND BY CATRE
 import random
 import time
 import datetime
@@ -38,7 +38,7 @@ if tiempo_raro >= "20":
 print(""" """)
 
 seguir = int(input("""Escoje la modalidad de juego o ve a los creditos:: 
-	1 = SOLO NUMEROS, )
+	1 = SOLO NUMEROS
 	2 = LETRAS Y NUMEROS
 	3 = CREDITOS(SALIR)"""))
 if seguir == 3:
@@ -75,12 +75,14 @@ while seguir == 1:
 		codigo = codigo + elegido
 
 	print("Tienes que adivinar un codigo de ",cant_digitos , " numeros distintos")
-	print("              Buena suerte!!!")
+	print(" Si te pierdes puedes pedir una pista(PISTA)    Buena suerte!!!")
 	propuesta = input("¿Que codigo propones? ")
 	inicio = time.time()
 	intentos = 1
-
+	
 	while propuesta != codigo:
+		if propuesta == "PISTA":
+			print(random.choice(elegido))
 		intentos = intentos + 1
 		aciertos = 0
 		coincidencias = 0
@@ -91,7 +93,9 @@ while seguir == 1:
 				coincidencias = coincidencias + 1
 		print("Tu propuesta(",propuesta,") tiene ", aciertos,
 			"aciertos y ",coincidencias," coincidencias")
+		print("")
 		propuesta = input("Propon otro codigo: ")
+
 	final = time.time()
 	tiempo = round(final - inicio,0)
 	print("ALV!!!, adivinaste el codigo en", intentos," intentos y en ",tiempo," segundos")
@@ -129,12 +133,14 @@ while seguir == 2:
 		codigo = codigo + elegido
 
 	print("Tienes que adivinar un codigo de ",cant_digitos , " numeros y letras distintas")
-	print("              Buena suerte!!!")
+	print("  Si te pierdes puedes pedir una pista(PISTA)       Buena suerte!!!")
 	propuesta = input("¿Que codigo propones? ")
 	inicio = time.time()
 	intentos = 1
 
 	while propuesta != codigo:
+		if propuesta == "PISTA":
+				print(random.choice(elegido))
 		intentos = intentos + 1
 		aciertos = 0
 		coincidencias = 0
@@ -145,6 +151,7 @@ while seguir == 2:
 				coincidencias = coincidencias + 1
 		print("Tu propuesta(",propuesta,") tiene ", aciertos,
 			"aciertos y ",coincidencias," coincidencias")
+		print("")
 		propuesta = input("Propon otro codigo: ")
 	final = time.time()
 	tiempo = round(final - inicio,0)
